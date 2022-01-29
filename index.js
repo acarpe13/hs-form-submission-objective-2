@@ -40,6 +40,18 @@ var contacts = [
   }
 ];
 
+//
+app.get('/', function (req, res) {
+  res.send(`
+    <h1>Welcome to my API</h1>
+    <p>Built on express using axios to execute external REST requests</p>
+    <br>
+    <h2>Available endpoints:</h2>
+    <p>POST: /form/submissions</p>
+    <p>Response echos Hubspot form response</p>
+  `)
+});
+
 // Form post endpoint
 app.post('/form/submissions', form.post);
 
