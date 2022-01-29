@@ -16,7 +16,8 @@ exports.post = function(req,res){
   // execute HS request
   axios(config)
   .then(function (response) {
-    res.status(response.status).send(response.data);
+    // res.status(response.status).send(response.data);
+    res.status(200).send(response.data);
   })
   .catch(function (error) {
     res.status(error.response.status).send(error.response.data); //.status(error.status)
