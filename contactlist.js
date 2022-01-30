@@ -27,7 +27,7 @@ exports.show = function(req,res){
   var list_id = req.params.id
   var config = {
     method: 'get',
-    url: `https://api.hubapi.com/contacts/v1/lists/${list_id}/contacts/all?hapikey=${process.env['HAPIKEY']}`
+    url: `https://api.hubapi.com/contacts/v1/lists/${list_id}/contacts/all?hapikey=${process.env['HAPIKEY']}&property=email&property=firstname&property=lastname&property=lifecyclestage&property=hs_marketable_reason_id`
   };
 
   // execute HS request
