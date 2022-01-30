@@ -1,3 +1,4 @@
+require('dotenv').config({path: __dirname + '/.env'})
 const express = require("express");
 var app = express();
 
@@ -10,7 +11,7 @@ const cors = require('cors');
 app.use(cors())
 
 // setting port for dev + replit
-const port = process.env.PORT || "3000";
+const port = process.env['PORT'];
 
 // import js files for model controllers
 //  /contact serves as a placeholder for a future addition to this application
