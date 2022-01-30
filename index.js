@@ -28,13 +28,16 @@ app.get('/', function (req, res) {
     <h2>Available endpoints:</h2>
     <p>POST: /form/submissions</p>
     <p>Response echos Hubspot form response</p>
+
+    <p>GET: /contactlists</p>
+    <p>GET: /contactlist/:id</p>
   `)
 });
 
 // Form post endpoint (calls on form.js post)
 app.post('/form/submissions', form.post);
 app.get('/contactlists', contactlist.get);
-// app.get('/contactlist/:id', contactlist.show);
+app.get('/contactlist/:id', contactlist.show);
 
 // app listens on configured port
 app.listen(port, () => {
