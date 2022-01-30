@@ -10,13 +10,11 @@ app.use(bodyParser.json())
 const cors = require('cors');
 app.use(cors())
 
-// setting port for dev + replit
 const port = process.env['PORT'];
 
 // import js files for model controllers
 //  /contact serves as a placeholder for a future addition to this application
 const form = require('./form');
-const contact = require('./contact');
 const contactlist = require('./contactlist');
 
 // Serve simple welcome/sitemap to root level domain
@@ -36,6 +34,7 @@ app.get('/', function (req, res) {
 
 // Form post endpoint (calls on form.js post)
 app.post('/form/submissions', form.post);
+// Endpoints for fetching contact lists
 app.get('/contactlists', contactlist.get);
 app.get('/contactlist/:id', contactlist.show);
 

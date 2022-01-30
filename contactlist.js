@@ -5,6 +5,7 @@ exports.get = function(req,res){
   var lists;
   var config = {
     method: 'get',
+    // HAPI key set by environmental variable
     url: `https://api.hubapi.com/contacts/v1/lists?hapikey=${process.env['HAPIKEY']}`
   };
 
@@ -27,6 +28,7 @@ exports.show = function(req,res){
   var list_id = req.params.id
   var config = {
     method: 'get',
+    // Specifies required properties to cut down on unneccessary data
     url: `https://api.hubapi.com/contacts/v1/lists/${list_id}/contacts/all?hapikey=${process.env['HAPIKEY']}&property=email&property=firstname&property=lastname&property=lifecyclestage&property=hs_marketable_reason_id`
   };
 
