@@ -17,6 +17,7 @@ const port = process.env['PORT'];
 //  /contact serves as a placeholder for a future addition to this application
 const form = require('./form');
 const contact = require('./contact');
+const contactlist = require('./contactlist');
 
 // Serve simple welcome/sitemap to root level domain
 app.get('/', function (req, res) {
@@ -32,6 +33,8 @@ app.get('/', function (req, res) {
 
 // Form post endpoint (calls on form.js post)
 app.post('/form/submissions', form.post);
+app.get('/contactlists', contactlist.get);
+// app.get('/contactlist/:id', contactlist.show);
 
 // app listens on configured port
 app.listen(port, () => {
