@@ -1,46 +1,23 @@
 const express = require("express");
-var bodyParser = require('body-parser');
-
 var app = express();
+
+// library to request body from f/e
+var bodyParser = require('body-parser');
 app.use(bodyParser.json())
 
+// library to allow cross origin requests
 const cors = require('cors');
 app.use(cors())
 
+// setting port for dev + replit
 const port = process.env.PORT || "3000";
+
+// import js files for model controllers
+//  /contact serves as a placeholder for a future addition to this application
 const form = require('./form');
 const contact = require('./contact');
 
-// Placeholder for bonus page data
-var contacts = [
-  {
-    firstname: "alex",
-    lastname: "carpenter",
-    email: "alexanderpcarpenter@gmail.com"
-  },
-  {
-    firstname: "Test1",
-    lastname: "Test1",
-    email: "alex_test1@gmail.com"
-  },
-  {
-    firstname: "Test2",
-    lastname: "Test2",
-    email: "alex_test2@gmail.com"
-  },
-  {
-    firstname: "Test3",
-    lastname: "Test3",
-    email: "alex_test3@gmail.com"
-  },
-  {
-    firstname: "Test4",
-    lastname: "Test4",
-    email: "alex_test4@gmail.com"
-  }
-];
-
-//
+// Serve simple welcome/sitemap to root level domain
 app.get('/', function (req, res) {
   res.send(`
     <h1>Welcome to my API</h1>
@@ -52,9 +29,10 @@ app.get('/', function (req, res) {
   `)
 });
 
-// Form post endpoint
+// Form post endpoint (calls on form.js post)
 app.post('/form/submissions', form.post);
 
+// app listens on configured port
 app.listen(port, () => {
   console.log(`Listening to requests on http://localhost:${port}`);
 });
